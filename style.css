@@ -1,0 +1,218 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Reformatting the font size */
+html {
+  font-size: 10px;
+}
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+:root {
+  --FontFamily: "Kumbh Sans", sans-serif;
+  --Darkcyan: hsl(185, 75%, 39%);
+  --LightCyan: #78dae0;
+  --Verydarkdesaturatedblue: hsl(229, 23%, 23%);
+  --Darkgrayishblue: hsl(227, 10%, 46%);
+  --Darkgray: hsl(0, 0%, 59%);
+  --White: hsl(0, 0%, 100%);
+}
+
+body {
+  background: url(images/bg-pattern-top.svg), url(images/bg-pattern-bottom.svg);
+  background-repeat: no-repeat, no-repeat;
+  background-position: right 60vw bottom 50vh, left 60vw top 50vh;
+  background-color: var(--Darkcyan);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--FontFamily);
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+.profile-card {
+  width: 35rem;
+  background-color: var(--White);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  margin: 2rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 0.3s;
+}
+.profile-card:hover {
+  transform: scale(1.1);
+}
+.profile-cover-img {
+  background: url(images/bg-pattern-card.svg);
+  width: 100%;
+  height: 15rem;
+}
+.profile-picture {
+  width: 10rem;
+  border: 0.5rem solid var(--White);
+  border-radius: 50%;
+  position: absolute;
+  top: 25%;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.profile-picture:hover {
+  border: 0.5rem solid var(--LightCyan);
+}
+.profile-content {
+  padding: 5.5rem 0 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.profile-data {
+  display: flex;
+  align-items: baseline;
+  gap: 0.7rem;
+}
+.profile-name {
+  font-size: 1.9rem;
+  color: var(--Verydarkdesaturatedblue);
+}
+.profile-age {
+  font-size: 1.9rem;
+}
+.profile-city {
+  padding-top: 0.8rem;
+  font-size: 1.5rem;
+  font-weight: lighter;
+}
+.profile-stadistics {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2.5rem;
+  gap: 3.5rem;
+  width: 100%;
+  border-top: 1px solid hsl(0, 0%, 86%);
+}
+.profile-stadistics-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: relative;
+}
+.stadistics-number {
+  font-size: 1.8rem;
+  color: var(--Verydarkdesaturatedblue);
+}
+.stadistics-type {
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+  color: var(--Darkgrayishblue);
+  font-weight: bold;
+  opacity: 0.7;
+}
+.stadistics-type::after {
+  content: "";
+  position: absolute;
+  width: 2.5rem;
+  height: 0.3rem;
+  left: -100%;
+  bottom: -5%;
+  background: var(--LightCyan);
+  opacity: 0;
+  transition: 0.3s;
+}
+.stadistics-type:hover::after,
+.stadistics-type:hover {
+  cursor: pointer;
+  left: 0%;
+  opacity: 1;
+  color: var(--LightCyan);
+}
+@media (max-width: 300px) {
+  .profile-picture {
+    width: 9rem;
+  }
+  .profile-content {
+    padding: 4rem 0 2.5rem;
+  }
+  .profile-name {
+    font-size: 1.7rem;
+  }
+  .profile-age {
+    font-size: 1.8rem;
+  }
+  .stadistics-number {
+    font-size: 1.5rem;
+  }
+  .stadistics-type {
+    font-size: 0.9rem;
+  }
+}
